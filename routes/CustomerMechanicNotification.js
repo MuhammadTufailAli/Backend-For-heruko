@@ -2,6 +2,10 @@ var express = require("express");
 var router = express.Router();
 const notificationController = require("../controller/CustomerMechanicNotificationController");
 router.get("/getNotification", notificationController.getNotification);
+router.get(
+  "/getNotification/:id",
+  notificationController.getSingleNotification
+);
 router.post("/PostNotification", notificationController.postNotification);
 router.patch(
   "/updateNotification/:id",

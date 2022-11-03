@@ -7,6 +7,10 @@ exports.updateNotification = factory.updateOne(CustomerMechanicNotification);
 
 exports.deleteNotification = factory.deleteOne(CustomerMechanicNotification);
 
+exports.getSingleNotification = factory.getOne(CustomerMechanicNotification, {
+  path: "User",
+});
+
 exports.getNotification = async (req, res, next) => {
   try {
     const Notification = await CustomerMechanicNotification.find().populate({
