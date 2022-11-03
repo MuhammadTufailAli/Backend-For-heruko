@@ -56,6 +56,9 @@ const CustomerMechanicNotification = new mongoose.Schema({
       longitude: {
         type: Number,
       },
+      price: {
+        type: Number,
+      },
     },
   ],
   createdAt: {
