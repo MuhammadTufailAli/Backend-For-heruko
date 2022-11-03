@@ -40,10 +40,24 @@ const CustomerMechanicNotification = new mongoose.Schema({
     require: [true, "Order must have a payment method "],
     default: "Pending",
   },
-  ArrayOfUsers: {
+  RejectedByUser: {
     type: Array,
     default: [],
   },
+  AcceptedByUser: [
+    {
+      refOfMechanic: {
+        type: mongoose.Schema.ObjectId,
+        ref: "User",
+      },
+      latitude: {
+        type: Number,
+      },
+      longitude: {
+        type: Number,
+      },
+    },
+  ],
   createdAt: {
     type: Date,
     default: Date.now(),
@@ -54,6 +68,10 @@ CustomerMechanicNotification.pre(/^find/, function (next) {
   this.populate({
     path: "refOfCustomer",
   });
+  this.populate({
+    path: "refOfMechanic",
+  });
+
   next();
 });
 
