@@ -11,10 +11,10 @@ router.get("/getNotification", notificationController.getNotification);
 // );
 
 router.post("/PostNotification", notificationController.postNotification);
-// router.patch(
-//   "/updateNotification/:id",
-//   notificationController.updateNotification
-// );
+router.patch(
+  "/updateNotification/:id",
+  notificationController.updateNotification
+);
 
 router.delete(
   "/deleteNotification/:id",
