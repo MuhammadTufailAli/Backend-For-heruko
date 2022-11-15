@@ -39,6 +39,7 @@ var CartRoute = require("./routes/cartRoute");
 var CustomerBuyingNotificationRoute = require("./routes/CustomerBuyingNotificationRoute");
 var CustomerMechanicNotificationRoute = require("./routes/CustomerMechanicNotification");
 var CustomerMechanicAfterAcceptingNotification = require("./routes/CustomerMechanicAfterAcceptingNotification");
+var MechanicAfterAcceptingNotification = require("./routes/MechanicAfterAcceptingNotification");
 var ShopOwnerBuyingNotificationRoute = require("./routes/ShopOwnerBuyingNotificationRoute");
 var feedbackrouter = require("./routes/feedback");
 var faqrouter = require("./routes/faqs");
@@ -88,6 +89,10 @@ app.use("/MechanicNotificationRoute", CustomerMechanicNotificationRoute);
 app.use(
   "/CustomerMechanicAfterAcceptingNotification",
   CustomerMechanicAfterAcceptingNotification
+);
+app.use(
+  "/MechanicAfterAcceptingNotification",
+  MechanicAfterAcceptingNotification
 );
 app.use("/feedback", feedbackrouter);
 app.use("/faqs", faqrouter);
