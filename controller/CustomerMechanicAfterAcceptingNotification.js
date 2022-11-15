@@ -22,10 +22,11 @@ exports.getSingleNotification = factory.getOne(
 
 exports.getNotification = async (req, res, next) => {
   try {
-    const Notification =
-      await CustomerMechanicAfterAcceptingNotification.find().populate({
-        path: "User",
-      });
+    const Notification = await CustomerMechanicAfterAcceptingNotification.find({
+      refOfCustomer: req.params.id,
+    }).populate({
+      path: "User",
+    });
     res.status(200).json({
       status: "success",
       result: Notification.length,

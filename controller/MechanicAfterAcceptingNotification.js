@@ -15,10 +15,11 @@ exports.deleteNotification = factory.deleteOne(
 
 exports.getNotification = async (req, res, next) => {
   try {
-    const Notification =
-      await MechanicAfterAcceptingNotification.find().populate({
-        path: "User",
-      });
+    const Notification = await MechanicAfterAcceptingNotification.find({
+      refOfMechanic: req.params.id,
+    }).populate({
+      path: "User",
+    });
     res.status(200).json({
       status: "success",
       result: Notification.length,

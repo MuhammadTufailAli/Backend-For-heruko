@@ -3,7 +3,7 @@ var router = express.Router();
 
 const notificationController = require("../controller/MechanicAfterAcceptingNotification");
 
-router.get("/getNotification", notificationController.getNotification);
+router.get("/getNotification/:id", notificationController.getNotification);
 
 // router.get(
 //   "/getNotification/:id",
