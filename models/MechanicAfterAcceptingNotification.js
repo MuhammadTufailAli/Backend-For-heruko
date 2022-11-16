@@ -13,6 +13,11 @@ const MechanicAfterAcceptingNotification = new mongoose.Schema({
     ref: "User",
     default: null,
   },
+  refOfCustomerNotification: {
+    type: mongoose.Schema.ObjectId,
+    ref: "CustomerMechanicAfterAcceptingNotification",
+    required: [true, "Order must belong to a CustomerBuyingNotification"],
+  },
 
   price: {
     type: Number,
