@@ -54,6 +54,12 @@ const userSchema = new mongoose.Schema(
       default:
         "https://res.cloudinary.com/vehiclebuddy/image/upload/v1665413220/rgyax6nangke0c7ssg5c.jpg",
     },
+    cnicFrontImageUrl: {
+      type: String,
+    },
+    cnicBackImageUrl: {
+      type: String,
+    },
     earning: {
       type: Number,
       required: [true, "It should have earning"],
