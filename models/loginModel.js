@@ -94,6 +94,17 @@ const userSchema = new mongoose.Schema(
     permanentaddress: {
       type: String,
     },
+    ratingsAverage: {
+      type: Number,
+      default: 4.5,
+      min: [1, "Rating must be above 1.0"],
+      max: [5, "Rating must be below 5.0"],
+      set: (val) => Math.round(val * 10) / 10, //set ik function ha jo humesha tab chalta ha jab ratingsAverage ki value set ho jay hum is ratingsAverage ko round karna k liya use kar raha ha
+    },
+    ratingQuantity: {
+      type: Number,
+      default: 0,
+    },
 
     // I commented it out now
     // photo: {
@@ -131,6 +142,12 @@ userSchema.pre("save", async function (next) {
 userSchema.virtual("reviews", {
   ref: "Review",
   foreignField: "refOfUser",
+  localField: "_id",
+});
+
+userSchema.virtual("reviews", {
+  ref: "ReviewOfMechanic",
+  foreignField: "refOfMechanic",
   localField: "_id",
 });
 

@@ -2,14 +2,13 @@ var express = require("express");
 var router = express.Router({ mergeParams: true });
 
 const loginController = require("../controller/loginController");
-const reviewController = require("../controller/reviewController");
+const reviewController = require("../controller/reviewMechanicController");
 
 router
   .route("/")
   .post(
     loginController.protect,
     loginController.restrictTo("Customer"),
-    reviewController.setTourUserIds,
     reviewController.postReview
   )
   .get(reviewController.getReviews);
@@ -23,7 +22,7 @@ router
   );
 
 router
-  .route("/getProductReview/:id")
+  .route("/getMechanicReview/:id")
   .get(reviewController.getproductReview)
 
   .delete(

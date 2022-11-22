@@ -30,6 +30,7 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var productRouter = require("./routes/product");
 var reviewRouter = require("./routes/review");
+var reviewMechanicRouter = require("./routes/reviewMechanic");
 var conversationRouter = require("./routes/conversation");
 var messageRouter = require("./routes/message");
 var bookingRoute = require("./routes/bookingRoute");
@@ -75,6 +76,7 @@ app.use((req, res, next) => {
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/review", reviewRouter);
+app.use("/reviewMechanic", reviewMechanicRouter);
 app.use("/product", productRouter);
 app.use("/conversation", conversationRouter);
 app.use("/message", messageRouter);
