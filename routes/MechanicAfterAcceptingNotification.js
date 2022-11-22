@@ -16,6 +16,11 @@ router.patch(
   notificationController.updateNotification
 );
 
+router.patch(
+  "/updateNotificationToReached/:id",
+  notificationController.updateNotificationToReached
+);
+
 router.delete(
   "/deleteNotification/:id",
   notificationController.deleteNotification

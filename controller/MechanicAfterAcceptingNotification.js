@@ -5,6 +5,10 @@ exports.postNotification = factory.createOne(
   MechanicAfterAcceptingNotification
 );
 
+exports.updateNotificationToReached = factory.updateOne(
+  MechanicAfterAcceptingNotification
+);
+
 exports.deleteNotification = factory.deleteOne(
   MechanicAfterAcceptingNotification
 );
