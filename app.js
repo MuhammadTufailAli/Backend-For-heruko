@@ -45,6 +45,7 @@ var ShopOwnerBuyingNotificationRoute = require("./routes/ShopOwnerBuyingNotifica
 var feedbackrouter = require("./routes/feedback");
 var faqrouter = require("./routes/faqs");
 var userreviewrouter = require("./routes/usereview");
+var carRouter = require("./routes/carRoute");
 
 //This is middleware by using this we get body of req data
 app.use(express.json());
@@ -99,6 +100,7 @@ app.use(
 app.use("/feedback", feedbackrouter);
 app.use("/faqs", faqrouter);
 app.use("/userreview", userreviewrouter);
+app.use("/car", carRouter);
 
 //unhandled route middleware
 app.all("*", (req, res, next) => {
