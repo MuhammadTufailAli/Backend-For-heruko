@@ -6,7 +6,7 @@ const carcontroller = require("../controller/carcontroller");
 router.route("/addcar").post(carcontroller.addcar);
 
 router.route("/getcar").get(carcontroller.getcar);
-router.route("/deleteCar/:id").get(carcontroller.deletecar);
-router.route("/updateCar/:id").get(carcontroller.updatecar);
+router.route("/deleteCar/:id").delete(carcontroller.deletecar);
+router.route("/updateCar/:id").patch(carcontroller.updatecar);
 
 module.exports = router;

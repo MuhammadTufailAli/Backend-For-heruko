@@ -1,20 +1,25 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 
-const loginController = require('../controller/loginController');
-const AdminNotificationController = require('../controller/AdminNotificationController');
+const loginController = require("../controller/loginController");
+const AdminNotificationController = require("../controller/AdminNotificationController");
 
 router.get(
-  '/getNotification',
+  "/getNotification",
   loginController.protect,
-
   AdminNotificationController.getNotification
 );
 
+router.post(
+  "/postNotification",
+
+  AdminNotificationController.AddNotification
+);
+
 router.delete(
-  '/deleteNotification/:id',
+  "/deleteNotification/:id",
   loginController.protect,
-  loginController.restrictTo('admin'),
+  loginController.restrictTo("admin"),
   AdminNotificationController.deleteNotification
 );
 
