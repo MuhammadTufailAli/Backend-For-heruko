@@ -2,8 +2,26 @@ const { response } = require("express");
 const Car = require("../models/carModel");
 const factory = require("./handlerFactory");
 
-exports.deletecar = factory.deleteOne(Car);
+// exports.deletecar = factory.deleteOne(Car);
 exports.updatecar = factory.updateOne(Car);
+
+exports.deletecar = async (req, res) => {
+  try {
+    const doc = await Car.findByIdAndDelete(req.params.id);
+    console.log("User id is ", req.params.id);
+    console.log(doc);
+    res.status(200).json({
+      status: "success",
+
+      data: doc,
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      message: err.message,
+    });
+  }
+};
 
 exports.addcar = async (req, res) => {
   let car = new Car({
