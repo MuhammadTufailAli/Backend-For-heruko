@@ -3,43 +3,42 @@ const notification = require("./../models/AdminNotification");
 const User = require("./../models/loginModel");
 const factory = require("./handlerFactory");
 
-exports.AddNotification = factory.createOne(Product);
-// exports.AddNotification = async (req, res, next) => {
-//   const token = req.token;
-//   const user = req.CreatedUser;
-//   const cookieOptions = req.cookie;
+exports.AddNotification = async (req, res, next) => {
+  const token = req.token;
+  const user = req.CreatedUser;
+  const cookieOptions = req.cookie;
 
-//   //Agr Customer hova to vo direct login kar jay ga agr shop owner hova to usa permission ki zroorat ha
-//   try {
-//     if (user.role === 'Customer') {
-//       res.cookie('jwt', token, cookieOptions);
-//       res.status(201).json({
-//         status: 'success',
-//         token,
-//         data: {
-//           user,
-//         },
-//       });
-//     } else {
-//       const Notification = await notification.create({
-//         refOfUser: req.CreatedUser._id,
-//       });
-//       console.log(Notification);
-//       res.status(201).json({
-//         status: 'success',
+  //Agr Customer hova to vo direct login kar jay ga agr shop owner hova to usa permission ki zroorat ha
+  try {
+    if (user.role === "Customer") {
+      res.cookie("jwt", token, cookieOptions);
+      res.status(201).json({
+        status: "success",
+        token,
+        data: {
+          user,
+        },
+      });
+    } else {
+      const Notification = await notification.create({
+        refOfUser: req.CreatedUser._id,
+      });
+      console.log(Notification);
+      res.status(201).json({
+        status: "success",
 
-//         data: {
-//           user,
-//         },
-//       });
-//     }
-//   } catch (err) {
-//     res.status(404).json({
-//       status: 'fail',
-//       message: 'Error in generating token',
-//     });
-//   }
-// };
+        data: {
+          user,
+        },
+      });
+    }
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      message: "Error in generating token",
+    });
+  }
+};
 
 exports.getNotification = async (req, res, next) => {
   try {
