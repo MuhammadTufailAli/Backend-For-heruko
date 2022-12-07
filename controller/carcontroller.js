@@ -29,11 +29,12 @@ exports.addcar = async (req, res) => {
   res.send(car);
 };
 
-exports.getcar = async (req, res, next) => {
-  const car = await Car.find();
-  if (!car) {
-    res.status(500).json(err);
-  }
+exports.getcar = factory.getAll(Car);
+// exports.getcar = async (req, res, next) => {
+//   const car = await Car.find();
+//   if (!car) {
+//     res.status(500).json(err);
+//   }
 
-  res.send(car);
-};
+//   res.send(car);
+// };
