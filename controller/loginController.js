@@ -136,6 +136,7 @@ exports.addUser = async (req, res, next) => {
       active: req.body.active,
       cnicFrontImageUrl: req.body.cnicFrontImageUrl,
       cnicBackImageUrl: req.body.cnicBackImageUrl,
+      phonenumber: req.body.phonenumber,
     });
 
     try {
