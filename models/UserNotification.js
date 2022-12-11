@@ -10,6 +10,9 @@ const UserNotificationSchema = new mongoose.Schema(
     adminName: {
       type: String,
     },
+    adminPhotoUrl: {
+      type: String,
+    },
     warning: {
       type: String,
       required: [true, "There should be a warning message"],
