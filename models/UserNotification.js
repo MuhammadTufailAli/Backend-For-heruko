@@ -17,10 +17,6 @@ const UserNotificationSchema = new mongoose.Schema(
       type: String,
       required: [true, "There should be a warning message"],
     },
-    warningFrom: {
-      type: String,
-      required: [true, "Warning  must come from admin"],
-    },
   },
   { timestamps: true }
 );
