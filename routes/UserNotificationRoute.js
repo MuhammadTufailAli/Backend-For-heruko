@@ -1,14 +1,20 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 
-const loginController = require('../controller/loginController');
-const UserNotificationController = require('../controller/UserNotificationController');
+const loginController = require("../controller/loginController");
+const UserNotificationController = require("../controller/UserNotificationController");
 
 router.post(
-  '/postNotification',
+  "/postNotification",
   loginController.protect,
-  loginController.restrictTo('admin'),
+  loginController.restrictTo("admin"),
   UserNotificationController.postNotification
+);
+
+router.route("/UserNotification/:id").get(
+  // loginController.protect,
+  // loginController.restrictTo('shopOwner', 'admin'),
+  UserNotificationController.UserNotification
 );
 
 module.exports = router;
