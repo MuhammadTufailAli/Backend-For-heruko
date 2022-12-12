@@ -7,6 +7,7 @@ exports.updatecar = factory.updateOne(Car);
 
 exports.addcar = async (req, res) => {
   let car = new Car({
+    refOfUser: req.body.refOfUser,
     Name: req.body.Name,
     Engine_Type: req.body.Engine_Type,
     Transmission: req.body.Transmission,
