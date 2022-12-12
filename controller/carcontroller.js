@@ -40,3 +40,20 @@ exports.getcar = factory.getAll(Car);
 
 //   res.send(car);
 // };
+
+exports.CustomerVehicle = async (req, res, next) => {
+  try {
+    const CustomerProducts = await Car.find({ refOfUser: req.params.id });
+    console.log(CustomerProducts);
+    res.status(200).json({
+      status: "success",
+      result: CustomerProducts.length,
+      data: CustomerProducts,
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      message: err.message,
+    });
+  }
+};
