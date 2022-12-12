@@ -59,6 +59,10 @@ const CarSchema = new mongoose.Schema({
     type: [String],
     require: true,
   },
+  imageUrl: {
+    type: [String],
+    required: [true, "Product must have a image"],
+  },
 });
 
 const Car = mongoose.model("Car", CarSchema);
