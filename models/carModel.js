@@ -4,6 +4,11 @@ const CarSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
+  refOfUser: {
+    type: mongoose.Schema.ObjectId,
+    ref: "User",
+    required: [true, "Product must belong to a Shop Owner"],
+  },
   Engine_Type: {
     type: String,
     require: true,
