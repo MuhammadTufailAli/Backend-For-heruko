@@ -21,6 +21,7 @@ exports.addcar = async (req, res) => {
     User_Contact: req.body.User_Contact,
     Price: req.body.Price,
     Features: req.body.Features,
+    imageUrl: req.body.imageUrl,
   });
   car = await car.save();
   if (!car) {
